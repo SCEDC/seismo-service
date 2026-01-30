@@ -22,6 +22,7 @@ https://gitlab.com/aqms-swg/aqms.nextgen/hypopn-lambda
 ### Pick-filter
 
 ### Associator
+https://gitlab.com/aqms-swg/aqms.nextgen/associator
 
 ## Data flows
 We can take the output from a service and make it the input for another to construct a pipeline that results in a product such as an earthquake catalog.
