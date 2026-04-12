@@ -4,9 +4,10 @@ Contributors aim to do this by adopting a service-oriented architecture, where m
 accessible as services with a URL endpoint. Calls to these services return formats in json or other standards
 commonly used in the seismic monitoring community.
 
-At the Southern California Seismic Network, these services are currently used in two post-processing pipelines that interface with the AQMS realtime monitoring system. One, hypoPN, is an event post-processing system that is based on the AQMS hypomag module. The second, ST-Proc, is an automatic processing pipeline for subnet triggers. For more about these projects, please see the following publication:
+At the Southern California Seismic Network, these services are currently used in two types post-processing pipelines that interface with the AQMS realtime monitoring system. One refines event origins, and the other does event. Each type has an automated and manually initiated pipeline. hypoPN (green line), is an event post-processing system that is based on the AQMS hypomag module. ST-Proc (blue line), is an automatic processing pipeline for subnet triggers. For more about these projects, please see the following publication:
 
 Tepp, G., Yu, E., Bhaskaran, A., Tam, R., Zhu, W., Newman, Z., Jaski, E., & Scheckel, N. (2025). Improvements from incorporating machine learning algorithms into near real-time operational post-processing. Scientific Reports, 15(1), 28938, doi:10.1038/s41598-025-14491-1.
+
 
 This project is a work in progress and will be updated continually when new components are released.
 
