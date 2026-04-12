@@ -10,6 +10,8 @@ Tepp, G., Yu, E., Bhaskaran, A., Tam, R., Zhu, W., Newman, Z., Jaski, E., & Sche
 
 This project is a work in progress and will be updated continually when new components are released.
 
+
+
 ## Services
 
 ### Data-choice
@@ -18,6 +20,10 @@ This project is a work in progress and will be updated continually when new comp
 
 ### Picker
 https://gitlab.com/aqms-swg/aqms.nextgen/hypopn-lambda
+- uses PhaseNet picker model deployed in AWS Lambda function. User must have AWS account. 
+  
+https://gitlab.com/aqms-swg/aqms.nextgen/hypopn-lambda-seisbench-local
+ - uses PhaseNet picker model from [SeisBench](https://seisbench.readthedocs.io/en/stable/) library. Runs on-prem.
 
 ### Pick-filter
 
@@ -28,15 +34,19 @@ https://gitlab.com/aqms-swg/aqms.nextgen/associator
 We can take the output from a service and make it the input for another to construct a pipeline that results in a product such as an earthquake catalog.
 
 ### Pipeline Scripts
-### Message Library
-A library for working with these formats with our services can be found at https://pypi.org/project/postprocessing-seismo-lib/0.1.1/
+
 ### Notebooks
 
 ## Formats
-Formats, examples, and their specifications used in our services can be found at https://github.com/SCEDC/process-formats.
-These formats are based on work done by NEIC (https://code.usgs.gov/ghsc/neic/utilities/earthquake-detection-formats)
-We are working with the NEIC and the rest of the ANSS community to form standard formats that could be used by any seismic processing system. 
+Formats, examples, and their specifications used in our services can be found at (https://github.com/SCEDC/process-formats).
+We are working with the NEIC and the rest of the ANSS community to form [standard formats](https://gitlab.com/anss-netops/anss-data-formats) that could be used by any seismic processing system. Our plan is to migrate to these formats when they have stablized. 
 
+### Message Library
+Development on libraries that write and parse formats is ongoing.
+
+A library for working with SCSN formats with our services can be found at https://pypi.org/project/postprocessing-seismo-lib/0.1.1/
+
+A library for working with ANSS standard formats can be found at (https://pypi.org/project/anss-formats/) 
 
 ## Acknowledgement
 If you use software from this project, please cite the SCEDC:
