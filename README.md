@@ -4,7 +4,7 @@ Contributors aim to do this by adopting a service-oriented architecture, where m
 accessible as services with a URL endpoint. Calls to these services return formats in json or other standards
 commonly used in the seismic monitoring community.
 
-At the Southern California Seismic Network, these services are currently used in two types post-processing pipelines that interface with the AQMS realtime monitoring system. One refines event origins, and the other does event detection. Each type has an automated and manually initiated pipeline.
+At the Southern California Seismic Network, these services are currently used in two types of post-processing pipeline that interface with the AQMS realtime monitoring system. One refines event origins, and the other does event detection. Each type has an automated and manually initiated pipeline.
 
 ![](https://github.com/SCEDC/seismo-service/blob/IS-1/doc/assets/pipeline-graphic-9.png)
 
@@ -12,7 +12,7 @@ hypoPN (green line), is an event post-processing system that is based on the AQM
 
 Tepp, G., Yu, E., Bhaskaran, A., Tam, R., Zhu, W., Newman, Z., Jaski, E., & Scheckel, N. (2025). Improvements from incorporating machine learning algorithms into near real-time operational post-processing. Scientific Reports, 15(1), 28938, doi:10.1038/s41598-025-14491-1.
 
-The manual pipelines are initiated by started by user actions on the SCSN Event Review Page. If users see an undetected event in the waveforms of an event on the review page, they will be able to start the orange pipeline, which will collect waveforms around the event location, run them through the picker and associator, and see if additional event can be detected. If there is a poorly located event due to a bad pick, they can remove this pick and send the remaining back to the locator to calculate a new solution (purple line). This is an example of how we can use existing services in different combinations to enhance our processing capabilities.
+The manual pipelines are initiated by user actions on the SCSN Event Review Page. If users see an undetected event in the waveforms of an event on the review page, they will be able to start the clone pipeline (orange line), which will collect waveforms around the event location, run them through the picker and associator, and see if the additional event can be detected. If there is a poorly located event due to one or more bad picks, analysts can remove the problematic pick(s) and send those remaining back to the locator to calculate a new solution (purple line). This is an example of how we can use existing services in different combinations to enhance our processing capabilities.
 
 This project is a work in progress and will be updated continually when new components are released.
 
