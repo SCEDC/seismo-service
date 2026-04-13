@@ -4,11 +4,19 @@ Contributors aim to do this by adopting a service-oriented architecture, where m
 accessible as services with a URL endpoint. Calls to these services return formats in json or other standards
 commonly used in the seismic monitoring community.
 
-At the Southern California Seismic Network, these services are currently used in two post-processing pipelines that interface with the AQMS realtime monitoring system. One, hypoPN, is an event post-processing system that is based on the AQMS hypomag module. The second, ST-Proc, is an automatic processing pipeline for subnet triggers. For more about these projects, please see the following publication:
+At the Southern California Seismic Network, these services are currently used in two types post-processing pipelines that interface with the AQMS realtime monitoring system. One refines event origins, and the other does event detection. Each type has an automated and manually initiated pipeline.
+
+![](https://github.com/SCEDC/seismo-service/blob/IS-1/doc/assets/pipeline-graphic-9.png)
+
+hypoPN (green line), is an event post-processing system that is based on the AQMS hypomag module. ST-Proc (blue line), is an automatic processing pipeline for subnet triggers. For more about these projects, please see the following publication:
 
 Tepp, G., Yu, E., Bhaskaran, A., Tam, R., Zhu, W., Newman, Z., Jaski, E., & Scheckel, N. (2025). Improvements from incorporating machine learning algorithms into near real-time operational post-processing. Scientific Reports, 15(1), 28938, doi:10.1038/s41598-025-14491-1.
 
+The manual pipelines are initiated by started by user actions on the SCSN Event Review Page. If users see an undetected event in the waveforms of an event on the review page, they will be able to start the orange pipeline, which will collect waveforms around the event location, run them through the picker and associator, and see if additional event can be detected. If there is a poorly located event due to a bad pick, they can remove this pick and send the remaining back to the locator to calculate a new solution (purple line). This is an example of how we can use existing services in different combinations to enhance our processing capabilities.
+
 This project is a work in progress and will be updated continually when new components are released.
+
+
 
 ## Services
 
@@ -18,6 +26,10 @@ This project is a work in progress and will be updated continually when new comp
 
 ### Picker
 https://gitlab.com/aqms-swg/aqms.nextgen/hypopn-lambda
+- uses PhaseNet picker model deployed in AWS Lambda function. User must have AWS account. 
+  
+https://gitlab.com/aqms-swg/aqms.nextgen/hypopn-lambda-seisbench-local
+ - uses PhaseNet picker model from [SeisBench](https://seisbench.readthedocs.io/en/stable/) library. Runs on-prem.
 
 ### Pick-filter
 
@@ -28,15 +40,19 @@ https://gitlab.com/aqms-swg/aqms.nextgen/associator
 We can take the output from a service and make it the input for another to construct a pipeline that results in a product such as an earthquake catalog.
 
 ### Pipeline Scripts
-### Message Library
-A library for working with these formats with our services can be found at https://pypi.org/project/postprocessing-seismo-lib/0.1.1/
+
 ### Notebooks
 
 ## Formats
-Formats, examples, and their specifications used in our services can be found at https://github.com/SCEDC/process-formats.
-These formats are based on work done by NEIC (https://code.usgs.gov/ghsc/neic/utilities/earthquake-detection-formats)
-We are working with the NEIC and the rest of the ANSS community to form standard formats that could be used by any seismic processing system. 
+Formats, examples, and their specifications used in our services can be found at (https://github.com/SCEDC/process-formats).
+We are working with the NEIC and the rest of the ANSS community to form [standard formats](https://gitlab.com/anss-netops/anss-data-formats) that could be used by any seismic processing system. Our plan is to migrate to these formats when they have stablized. 
 
+### Message Library
+Development on libraries that write and parse formats is ongoing.
+
+A library for working with SCSN formats with our services can be found at https://pypi.org/project/postprocessing-seismo-lib/0.1.1/
+
+A library for working with ANSS standard formats can be found at (https://pypi.org/project/anss-formats/) 
 
 ## Acknowledgement
 If you use software from this project, please cite the SCEDC:
